@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lateralPressure</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+    font-size: 30px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  input {
+    font-family: inherit;
+    font-size: 30px;
+    max-width: 100px;
+    background: transparent;
+    /* border: 3px solid white; */
+
+    font-weight: bold;
+    transition-duration: 100ms;
+  }
+
+  input:hover {
+    background: rgba(0, 0, 0, 0.062);
+  }
+
+  input:focus {
+    outline: 0;
+    outline-offset: 0;
+    background: rgba(0, 0, 0, 0.062);
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  body {
+    background-blend-mode: screen;
+    background-color: #f1f2f6;
+    background: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+  }
+
+  .page {
+    display: flex;
+    padding: 40px 40px;
+    justify-content: space-between;
+  }
+
+  .block-with-values {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .paragrph {
+    text-align: center;
+    width: 100%;
+    margin: 50px 0px 0px 0px;
+    font-size: 25px;
+    font-style: italic;
+  }
+
+  .block-with-array {
+    border-top: 1px solid black;
+    width: 600px;
+  }
+
+  .addLayer {
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+  }
+
+  .addLayer span {
+    display: inline-block;
+    min-width: 200px;
+  }
+
+  .block-add-layer {
+    border: 3px solid rgba(0, 0, 0, 0.39);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .button-download {
+    margin: 20px 0px 0px 0px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 25px;
+    color: rgba(255, 1, 1, 0.692);
+    border-radius: 20px;
+    text-align: center;
+    width: 200px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.521);
+    cursor: pointer;
+    transition-duration: 300ms;
+  }
+
+  .button-download:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.829);
+  }
+</style>
+
+<body>
+  <div class="page">
+    <div class="block-with-values">
+      <div>
+        <span>Верхняя отметка вмещающего массива: -</span>
+        <input id="stratpoint" value="" type="text" onkeydown="this.style.width = ((this.value.length + 1) * 15) + 'px'"
+          maxlength="6">
+        <span>м</span>
+      </div>
+      <div>
+        <span>Желаемый шаг:</span>
+        <input id="step" maxlength="6" type="text"
+          onkeydown="this.style.width = ((this.value.length + 1) * 15) + 'px';">
+        <span>м</span>
+      </div>
+      <p class="paragrph">Добавление слоя горного массива</p>
+      <div class="block-add-layer">
+        <div>
+          <span>высота слоя № <span class="nh">1</span>:</span>
+          <input id="layerHeight" type="text" maxlength="6">
+          <span>м</span>
+        </div>
+        <div>
+          <span>плотность материала в слое № <span class="nd">1</span>:</span>
+          <input id="layerDensity" type="text" maxlength="5">
+          <span>кг/м<sup>3</sup></span>
+        </div>
+        <div>
+          <span>коэффициен Пуассона материала в слое № <span class="np">1</span>:</span>
+          <input id="layerPoisson" type="text" maxlength="6">
+        </div>
+      </div>
+      <div class="button-download">скачать</div>
+    </div>
+    <div class="block-with-array">
+
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
